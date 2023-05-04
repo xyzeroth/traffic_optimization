@@ -1,0 +1,26 @@
+{
+  "scenario": {
+    "time": {
+      "begin": 25200,
+      "end": 32400
+    },
+    "input": {
+      "fileType": "SALT",
+      "node": "doan.node.xml",
+      "link": "doan.edge.xml",
+      "connection": "doan.connection.xml",
+      "trafficLightSystem": "doan.tss.xml",
+      "route": "doan.12th.rou.xml"
+    },
+    "parameter": {
+      "minCellLength": 30,
+      "vehLength": 5
+    },
+    "output": {
+      "fileDir": "output/train/12th",
+      "period": 30,
+      "level": "link",
+      "save": 1
+    }
+  }
+}
