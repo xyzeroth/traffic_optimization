@@ -758,6 +758,10 @@ def run_multi_thread(trial, envs, agent):
         
     for thread in threads: thread.join()
     end_time = time.time()
+
+    rewards = [env.ep_reward_list[-1] for env in envs]
+    mean = np.mean(rewards)
+    std = np.std(rewards)
     
     print("Episode: {}, Simulation time: {}, Memory Size: {}".format(trial, end_time - start_time, agent.getMemorySize()) )
     for i, env in enumerate(envs):
@@ -766,7 +770,8 @@ def run_multi_thread(trial, envs, agent):
         print('Recent returns:', env.ep_reward_list[-10:])
         print("Avg Reward is ==> {}".format(np.mean(env.ep_reward_list[-40:])))
 
-        
+    return rewards, mean, std
+
     
 def trainSappo(args):
     '''
